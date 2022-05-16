@@ -8,14 +8,23 @@
  * Check service worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-PWA-Test/sw.js", {
-    scope: "/ICS2O-PWA-Test/",
+  navigator.serviceWorker.register("/ICS2O-Unit6-02-HTML/sw.js", {
+    scope: "/ICS2O-Unit6-02-HTML/",
   })
 }
 
 /**
- * This function displays an alert.
+ * This function updates the cookie count.
  */
-function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML = "<p>Hello, World!</p>"
+function updateCookieCount() {
+
+  // input and process
+  if (localStorage.updateCookieCount) {
+    localStorage.updateCookieCount = Number(localStorage.updateCookieCount) +1
+  } else {
+    localStorage.updateCookieCount = 1
+  }
+
+  // output
+  document.getElementById("answer").innerHTML = "The amount of times clicked: " + localStorage.updateCookieCount
 }
